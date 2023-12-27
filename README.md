@@ -1,3 +1,19 @@
+# Setup Project
+Project dibuat dengan Node.js dengan database MySQL
+- Buat MySQL database bernama `tes_kiostix` sesuai file db_config.js
+```
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "tes_kiostix"
+});
+```
+- `npm install`
+- `node db_setup`
+- `npm start`
+
+# Penjelesan Soal Sesuai Nomor
 ## Nomor 1
 fungsi `get_max()` untuk mendapatkan nilai Maksimal sedangkan fungsi `get_min()` untuk mendapatkan nilai minimal
 ```
