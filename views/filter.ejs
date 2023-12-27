@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tes Kiostik</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity= 
+        "sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous"> 
+    </script> 
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button><a href="/">Kembali</a> </button> <br><br>
+    <h1>Filter berdasarkan judul, kategori, penulis</h1>
+
+    <label for="judul">Judul Buku:</label><br>
+    <input type="text" id="judul" name="judul"><br>
+    <label for="kategori">Kategori:</label><br>
+    <select id="kategori" name="kategori">
+        <option value=""> Semua Kategori </option>
+        <% kategori.forEach(k => { %>
+            <option value="<%= k.nama %>"> <%= k.nama %> </option>
+        <% }) %>
+    </select> <br>
+    <label for="penulis">Penulis:</label><br>
+    <select id="penulis" name="penulis">
+        <option value=""> Semua Penulis </option>
+        <% penulis.forEach(p => { %>
+            <option value="<%= p.nama %>"> <%= p.nama %> </option>
+        <% }) %>
+    </select>
+    <input id="submit" type="submit" value="cari">
+    
+    <div id="result">
+        <table id="tabel">
+            
+        </table>
+    </div>
+    
+
+
+</body>
+
+<script>
+    
+$(document).ready(function () { 
+   $("#submit").click(function () { 
+    var judul = $("#judul").val() ?? "";
+    var kategori = $("#kategori").val();
+    var penulis = $("#penulis").val();
+    $.ajax({
+        type: 'GET',
+        data: {
+            "judul": judul,
+            "penulis": penulis,
+            "kategori": kategori,
+            // "params": "?penulis="+penulis+"&judul="+ judul+"&kategori=" + kategori, 
+        },
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        // url: "/api/buku?penulis="+penulis+"&judul=",
+        url: "/api/buku",
+        success:function(res){
+            $("#tabel").empty();
+            if(res.data.length > 0){
+                $("#tabel").append(`<thead>
+                                            <tr>
+                                                <th>Judul</th>
+                                                <th>Kategori</th>
+                                                <th>Penulis</th>
+                                            </tr>
+                                        </thead>`);
+                for(var i=0; i<res.data.length; i++){
+                    var element  = res.data[i];
+
+                    var row = document.createElement('tr');
+                    var judul = document.createElement('td');
+                    var kategori = document.createElement('td');
+                    var penulis = document.createElement('td');
+
+                    judul.innerHTML = element.judul;
+                    kategori.innerHTML = element.kategori;
+                    penulis.innerHTML = element.penulis;
+
+                    row.appendChild(judul);
+                    row.appendChild(kategori);
+                    row.appendChild(penulis);
+
+                    $('#tabel').append(row);
+                }
+            }else{
+                $("#tabel").append('<h2> Data tidak ditemukan </h2>');
+            }
+            
+        },
+        error:function( errorMessage)
+        {
+            console.log(errorMessage);
+        }
+    });
+   }); 
+}); 
+
+</script>
+</html>

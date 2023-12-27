@@ -1,0 +1,21 @@
+{
+  "name": "kiostix-test",
+  "version": "1.0.0",
+  "description": "tes kiostix",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bunga Fairuz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-jsdoc-swagger": "^1.8.0",
+    "express-session": "^1.17.3",
+    "mysql": "^2.18.1"
+  }
+}

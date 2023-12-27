@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tes Kiostik</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <% if (message.success) { %>
+        <strong> this is flash message : <%= message.success %> </strong>
+    <% } %>
+
+    <button><a href="/">Kembali</a> </button> <br><br>
+    <h1> Form Menambahkan Data Buku </h1>
+    <form action="/buku/add" method="post" >
+        <label for="judul">Judul Buku:</label><br>
+        <input type="text" id="judul" name="judul"><br>
+        <label for="kategori">Kategori:</label><br>
+        <select id="kategori" name="kategori">
+            <% kategori.forEach(k => { %>
+                <option value="<%= k.id %>"> <%= k.nama %> </option>
+            <% }) %>
+        </select> <br>
+        <label for="penulis">Penulis:</label><br>
+        <select id="penulis" name="penulis">
+            <% penulis.forEach(p => { %>
+                <option value="<%= p.id %>"> <%= p.nama %> </option>
+            <% }) %>
+        </select>
+        <input type="submit" value="tambahkan">
+    </form>
+    <br><hr>
+   <table>
+    <thead>
+        <tr>
+            <th>Judul</th>
+            <th>Kategori</th>
+            <th>Penulis</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    
+    <% buku.forEach(b => { %>
+        <tr>
+        <td><%= b.judul %></td>
+        <td><%= b.kategori %></td>
+        <td><%= b.penulis %></td>
+        <td>
+            <button><a href="/buku/delete/<%= b.id %>" class="btn btn-sm btn-danger">Hapus</a></button></td>
+        </tr>
+    <%}); %>
+    
+
+    </table>
+   <hr>
+
+
+   <h1> Form Menambahkan Data Kategori </h1>
+   <form action="/kategori/add" method="post" >
+       <label for="nama">Nama Kategori:</label><br>
+       <input type="text" id="nama" name="nama"><br>
+      
+       <input type="submit" value="tambahkan">
+   </form>
+   <br><hr>
+  <table>
+   <thead>
+       <tr>
+           <th>Nama</th>
+           <th>Aksi</th>
+       </tr>
+   </thead>
+   
+   <% kategori.forEach(k => { %>
+       <tr>
+       <td><%= k.nama %></td>
+       <td><button><a href="/kategori/delete/<%= k.id %>" class="btn btn-sm btn-danger">Hapus</a></button></td></td>
+       </tr>
+   <%}); %>
+   </table>
+    </table>
+   <hr>
+
+
+   <h1> Form Menambahkan Data Penulis </h1>
+   <form action="/penulis/add" method="post" >
+       <label for="nama">Nama Penulis:</label><br>
+       <input type="text" id="nama" name="nama"><br>
+      
+       <input type="submit" value="tambahkan">
+   </form>
+   <br><hr>
+  <table>
+   <thead>
+       <tr>
+           <th>Nama</th>
+           <th>Aksi</th>
+       </tr>
+   </thead>
+   
+   <% penulis.forEach(p => { %>
+       <tr>
+       <td><%= p.nama %></td>
+       <td><button><a href="/penulis/delete/<%= p.id %>" class="btn btn-sm btn-danger">Hapus</a></button></td></td>
+       </tr>
+   <%}); %>
+   </table>
+
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tes Kiostik</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+
+    <button><a href="/">Kembali</a> </button> <br><br>
+    <p> 
+        Buatlah sebuah fungsi untuk mendeteksi sebuah kata Palindrom atau kata yang bila dibaca
+        dari depan atau dari belakang, tetap sama, misal “LEVEL”,”KATAK”,”MALAM” dll.
+        Diharapkan membuat fungsi sendiri tanpa menggunakan fungsi bawaan seperti String
+        Reverse dsb
+    </p>
+    <input type="text" id="string"/>
+    <input type="button" id="button1" value="Cek Palindrom" onclick="is_palindrom();"></input>
+    <div id="Result"></div> 
+</body>
+
+<script>
+function is_palindrom(){
+    var str = document.getElementById("string").value;
+    var result = "<hr/> string \"" + str +"\" => ";
+
+    str = str.toLowerCase();
+    var len = str.length;
+    for(i = 0; i<len/2; i++){
+        if(str[i] !== str[len-1-i]){
+            result += "BUKAN PALINDROM </br>";
+            document.getElementById("Result").innerHTML = result;
+            return;
+        }
+    }
+    result += "PALINDROM </br>";
+    document.getElementById("Result").innerHTML = result;
+}
+
+</script>
+</html>

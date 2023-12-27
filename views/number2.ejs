@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tes Kiostik</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <button><a href="/">Kembali</a> </button> <br><br>
+    <p> 
+        Dari nilai 0-100, Buat lah fungsi dengan ketentuan berikut:
+            <br>a. Setiap kelipatan 25 akan mencetak string “KI”
+            <br>b. Setiap keliaptan 40 akan mencetak string “OS”
+            <br>c. Setiap kelipatan 60 akan mencetak string “TIK”
+            <br>d. Dan setiap kelipatan 99 akan mencetak string “KIOSTIX”
+    </p>
+    <div id="Result"></div> 
+</body>
+
+<script>
+document.getElementById("Result").innerHTML = get_string();
+function get_string(){
+    var str = "";
+    for(i = 1; i<100; i++){
+        if(i%25==0) str+="KI";
+        if(i%40==0) str+="OS";
+        if(i%60==0) str+="TIK";
+        if(i%99==0) str+="KIOSTIX";
+        
+    }
+    return str;
+}
+
+</script>
+</html>

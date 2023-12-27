@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tes Kiostik</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <button><a href="./">Kembali</a> </button> <br><br>
+    <p> Buatlah sebuah fungsi untuk menentukan nilai tertinggi & terendah dari baris array berikut,
+        tanpa menggunakan fungsi bawaan seperti MAX / MIN.. <br> contoh => [‘1,5,8,0,9,7,4,3,2’]</p>
+    <input type="text" id="text1"></input>
+    <input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+    <!-- <input type="button" id="button2" value="Display" onclick="display_array();"></input> -->
+    <input type="button" id="button3" value="Get Max" onclick="get_max();"></input>
+    <input type="button" id="button4" value="Get Min" onclick="get_min();"></input>
+    <div id="Result"></div> 
+    <div id="Max"></div> 
+    <div id="Min"></div> 
+</body>
+
+<script>
+var x = 0;
+var array = Array();
+
+function add_element_to_array()
+{
+ array[x] = document.getElementById("text1").value;
+//  alert("Element: " + array[x] + " Added at index " + x);
+ x++;
+ document.getElementById("text1").value = "";
+
+ display_array();
+ document.getElementById("Max").innerHTML = "";
+ document.getElementById("Min").innerHTML = "";
+}
+
+function display_array()
+{
+   var e = "<hr/>";   
+    
+    if(array.length == 0){
+        e += "array kosong <br/>";
+    }
+    for (var y=0; y<array.length; y++)
+    {
+        e += "array[" + y + "] = " + array[y] + "<br/>";
+    }
+    document.getElementById("Result").innerHTML = e;
+}
+
+function get_max(){
+    var max = array[0];
+
+    var text = "<br/>";
+    for(i=1; i<array.length; i++){
+        if(array[i] > max)
+            max = array[i];
+    }
+    text += "nilai Maksimal array tersebut adalah " + max +"</br>";
+    document.getElementById("Max").innerHTML = text;
+}
+
+function get_min(){
+
+    var min = array[0];
+    for(i=1; i<array.length; i++){
+        if(array[i] < min)
+            min = array[i];
+    }
+
+    var text = "<br/> nilai Minimal array tersebut adalah " + min +"</br";
+
+    document.getElementById("Min").innerHTML = text;
+}
+
+</script>
+</html>
