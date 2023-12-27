@@ -28,3 +28,44 @@ function get_min(){
 
 ```
 ## Nomor 2
+Mencetak string sesuai ketentuan
+```
+function get_string(){
+    var str = "";
+    for(i = 1; i<100; i++){
+        if(i%25==0) str+="KI";
+        if(i%40==0) str+="OS";
+        if(i%60==0) str+="TIK";
+        if(i%99==0) str+="KIOSTIX";
+        
+    }
+    return str;
+}
+```
+
+## Nomor 3
+Mendeteksi apakah sebuah kata merupakan palindrom
+```
+function is_palindrom(){
+    var str = document.getElementById("string").value;
+    var result = "<hr/> string \"" + str +"\" => ";
+
+    str = str.toLowerCase();
+    var len = str.length;
+    for(i = 0; i<len/2; i++){
+        if(str[i] !== str[len-1-i]){
+            result += "BUKAN PALINDROM </br>";
+            document.getElementById("Result").innerHTML = result;
+            return;
+        }
+    }
+    result += "PALINDROM </br>";
+    document.getElementById("Result").innerHTML = result;
+}
+```
+
+## Nomor 4
+Mendesain Database buku, penulis, dan kategori
+![desain db](https://github.com/bunga29/kiostix-test/assets/57172208/6b3a3aa5-af68-46ff-9488-f968f454c1a8)
+
+
