@@ -65,7 +65,38 @@ function is_palindrom(){
 ```
 
 ## Nomor 4
-Mendesain Database buku, penulis, dan kategori
+Mendesain Database buku, penulis, dan kategori <br>
 ![desain db](https://github.com/bunga29/kiostix-test/assets/57172208/6b3a3aa5-af68-46ff-9488-f968f454c1a8)
+
+## Nomor 5
+menampilkan data semua buku berdasarkan nama penulis
+```
+select 
+b.judul as judul_buku,
+k.nama as kategori,
+p.nama as penulis
+from buku b
+join penulis p 
+    on b.id_penulis = p.id 
+join kategori k 
+    on b.id_kategori = k.id 
+where p.nama like '% NAMA PENULIS %';
+```
+
+## Nomor 6
+menampilkan data buku dan nama penulis berdasarkan kategori
+```
+select 
+b.judul as judul_buku,
+k.nama as kategori,
+p.nama as penulis
+from buku b
+join penulis p 
+    on b.id_penulis = p.id 
+join kategori k 
+    on b.id_kategori = k.id 
+where k.nama like '% NAMA KATEGORI %';
+```
+
 
 
