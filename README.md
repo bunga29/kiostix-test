@@ -1,6 +1,6 @@
 # Setup Project
 Project dibuat dengan Node.js dengan database MySQL
-- Buat MySQL database bernama `tes_kiostix` sesuai file db_config.js
+- Buat MySQL database bernama `tes_kiostix` dan sesuaikan user password file db_config.js
 ```
 const db = mysql.createConnection({
     host: "localhost",
