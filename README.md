@@ -97,6 +97,42 @@ join kategori k
     on b.id_kategori = k.id 
 where k.nama like '% NAMA KATEGORI %';
 ```
-
+## Nomor 7,8,9
+Contoh dokumentasi swagger dapat diliat pada projek `localhost:3000/api-docs` <br>
+URL : 
+[GET] `/api/buku`
+<br>
+Request :
+```
+params = {
+    'judul' => string, //nullable
+    'kategori' => string, //nullable
+    'penulis' => string, //nullable
+}
+```
+Contoh Response :
+```
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "judul": "Jalan Pulang",
+            "kategori": "Novel",
+            "penulis": "Bunga Fairuz"
+        },
+        {
+            "id": 2,
+            "judul": "Bumi",
+            "kategori": "Novel",
+            "penulis": "Muhammad Akbar"
+        }
+    ]
+}
+```
+## Nomor 10
+Dapat diliat pada project
+#### `localhost:3000/scripting`
+#### `localhost:3000/filter`
 
 
