@@ -131,7 +131,7 @@ Contoh Response :
 }
 ```
 ## Nomor 10
-Dapat diliat pada project
+Dapat diliat pada projek
 #### `localhost:3000/scripting`
 #### `localhost:3000/filter`
 
