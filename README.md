@@ -12,6 +12,7 @@ const db = mysql.createConnection({
 - `npm install`
 - `node db_setup`
 - `npm start`
+- Jalankan projek pada `localhost:3000`
 
 # Penjelesan Soal Sesuai Nomor
 ## Nomor 1
